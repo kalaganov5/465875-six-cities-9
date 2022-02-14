@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App, {CurrentLocation} from './components/app/app';
 
 const Settings = {
-  USER_EMAIL: '',
+  USER_EMAIL: 'Oliver.conner@gmail.com',
 };
 
 const currentLocation = CurrentLocation.MAIN;
