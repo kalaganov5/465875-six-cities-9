@@ -1,5 +1,5 @@
 import Header from '../header/header';
-import PageMain from '../page-main/page-main';
+import MainScreen from '../main-screen/main-screen';
 import AuthScreen from '../auth-screen/auth-screen';
 
 export const CurrentLocation = {
@@ -32,7 +32,7 @@ function App({currentLocation, userEmail}: appProps): JSX.Element {
       return (
         <div className="page page--gray page--main">
           <Header userEmail={userEmail} isLoginScreen={isLoginScreen}/>
-          <PageMain/>
+          <MainScreen/>
         </div>
       );
   }
