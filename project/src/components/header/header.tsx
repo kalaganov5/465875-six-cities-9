@@ -1,10 +1,11 @@
 import AuthMenu from './auth-menu/auth-menu';
 
 type headerProps = {
+  isLoginScreen: boolean,
   userEmail: string
 }
 
-function Header({userEmail}: headerProps): JSX.Element {
+function Header({isLoginScreen, userEmail}: headerProps): JSX.Element {
   return (
     <header className="header">
       <div className="container">
@@ -14,7 +15,7 @@ function Header({userEmail}: headerProps): JSX.Element {
               <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41" />
             </a>
           </div>
-          <AuthMenu userEmail={userEmail} />
+          {isLoginScreen ? '' : <AuthMenu userEmail={userEmail} />}
         </div>
       </div>
     </header>
