@@ -2,11 +2,13 @@ import Header from '../header/header';
 import MainScreen from '../main-screen/main-screen';
 import AuthScreen from '../auth-screen/auth-screen';
 import FavoritesScreen from '../favorites-screen/favorites-screen';
+import PropertyScreen from '../property-screen/property-screen';
 
 export const CurrentLocation = {
   MAIN: 'MAIN',
   LOGIN: 'LOGIN',
   FAVORITES: 'FAVORITES',
+  PROPERTY: 'PROPERTY',
 };
 
 type appProps = {
@@ -36,6 +38,16 @@ function App({currentLocation, userEmail}: appProps): JSX.Element {
           <Header userEmail={userEmail} isLoginScreen={isLoginScreen}/>
           <main className="page__main page__main--favorites">
             <FavoritesScreen />
+          </main>
+        </div>
+      );
+
+    case CurrentLocation.PROPERTY:
+      return (
+        <div className="page">
+          <Header userEmail={userEmail} isLoginScreen={isLoginScreen}/>
+          <main className="page__main page__main--property">
+            <PropertyScreen />
           </main>
         </div>
       );
