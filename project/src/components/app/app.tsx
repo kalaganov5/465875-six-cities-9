@@ -32,7 +32,9 @@ function App({currentLocation, userEmail}: appProps): JSX.Element {
       return (
         <div className="page page--gray page--main">
           <Header userEmail={userEmail} isLoginScreen={isLoginScreen}/>
-          <MainScreen/>
+          <main className="page__main page__main--index">
+            <MainScreen/>
+          </main>
         </div>
       );
   }
