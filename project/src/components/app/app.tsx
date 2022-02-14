@@ -30,9 +30,10 @@ function App({currentLocation, userEmail}: appProps): JSX.Element {
       );
     default:
       return (
-        <PageMain
-          userEmail={userEmail}
-        />
+        <div className="page page--gray page--main">
+          <Header userEmail={userEmail} isLoginScreen={isLoginScreen}/>
+          <PageMain/>
+        </div>
       );
   }
 }

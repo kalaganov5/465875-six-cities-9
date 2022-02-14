@@ -6,7 +6,7 @@ const Settings = {
   USER_EMAIL: '',
 };
 
-const currentLocation = CurrentLocation.LOGIN;
+const currentLocation = CurrentLocation.MAIN;
 
 ReactDOM.render(
   <React.StrictMode>
