@@ -1,4 +1,4 @@
-const setRatingStyle = (number: number):object => ({width: `${number}%`});
+import {setRatingStyle} from '../../../utils/utils';
 
 function Offers(): JSX.Element {
   return (
