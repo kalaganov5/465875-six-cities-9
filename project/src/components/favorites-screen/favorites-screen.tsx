@@ -1,4 +1,4 @@
-import {setRatingStyle} from '../../utils/utils';
+import {setRatingStyle} from 'utils/utils';
 
 function FavoritesScreen(): JSX.Element {
   return (

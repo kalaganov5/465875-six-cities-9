@@ -1,4 +1,4 @@
-import {setRatingStyle} from '../../utils/utils';
+import {setRatingStyle} from 'utils/utils';
 
 const generatePlaceOther = () => (
   <article className="near-places__card place-card">
