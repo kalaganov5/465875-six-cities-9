@@ -1,29 +1,29 @@
 import {setRatingStyle} from 'utils/utils';
-import OfferOtherItem from './offer-other-item/offer-other-item';
+import OfferOtherItem from 'components/offer-other-item/offer-other-item';
 
-function PropertyScreen(): JSX.Element {
+function Property(): JSX.Element {
   return (
     <>
       <section className="property">
         <div className="property__gallery-container container">
           <div className="property__gallery">
             <div className="property__image-wrapper">
-              <img className="property__image" src="img/room.jpg" alt="Photo studio" />
+              <img className="property__image" src="img/room.jpg" alt="" />
             </div>
             <div className="property__image-wrapper">
-              <img className="property__image" src="img/apartment-01.jpg" alt="Photo studio" />
+              <img className="property__image" src="img/apartment-01.jpg" alt="" />
             </div>
             <div className="property__image-wrapper">
-              <img className="property__image" src="img/apartment-02.jpg" alt="Photo studio" />
+              <img className="property__image" src="img/apartment-02.jpg" alt="" />
             </div>
             <div className="property__image-wrapper">
-              <img className="property__image" src="img/apartment-03.jpg" alt="Photo studio" />
+              <img className="property__image" src="img/apartment-03.jpg" alt="" />
             </div>
             <div className="property__image-wrapper">
-              <img className="property__image" src="img/studio-01.jpg" alt="Photo studio" />
+              <img className="property__image" src="img/studio-01.jpg" alt="" />
             </div>
             <div className="property__image-wrapper">
-              <img className="property__image" src="img/apartment-01.jpg" alt="Photo studio" />
+              <img className="property__image" src="img/apartment-01.jpg" alt="" />
             </div>
           </div>
         </div>
@@ -213,4 +213,4 @@ function PropertyScreen(): JSX.Element {
   );
 }
 
-export default PropertyScreen;
+export default Property;

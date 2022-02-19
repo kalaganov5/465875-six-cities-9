@@ -1,67 +1,31 @@
-import Header from '../header/header';
-import MainScreen from '../main-screen/main-screen';
-import AuthScreen from '../auth-screen/auth-screen';
-import FavoritesScreen from '../favorites-screen/favorites-screen';
-import PropertyScreen from '../property-screen/property-screen';
-
-export const CurrentLocation = {
-  MAIN: 'MAIN',
-  LOGIN: 'LOGIN',
-  FAVORITES: 'FAVORITES',
-  PROPERTY: 'PROPERTY',
-};
+import {Route, BrowserRouter, Routes} from 'react-router-dom';
+import Layout from '../layout';
+import Main from 'pages/main';
+import Auth from 'pages/auth';
+import Favorites from 'pages/favorites';
+import Property from 'pages/property';
+import NotFound from 'pages/not-found';
+import {AppRoute} from 'const';
 
 type appProps = {
-  currentLocation: string,
   userEmail: string,
 }
 
-function App({currentLocation, userEmail}: appProps): JSX.Element {
-  const isLoginScreen = CurrentLocation.LOGIN === currentLocation;
+function App({userEmail}: appProps): JSX.Element {
 
-  switch (currentLocation) {
-    case CurrentLocation.LOGIN:
-      return (
-        <div className="page page--gray page--login">
-          <Header userEmail={userEmail} isLoginScreen={isLoginScreen}/>
-          <main className="page__main page__main--login">
-            <div className="page__login-container container">
-              <AuthScreen />
-            </div>
-          </main>
-        </div>
-      );
-
-    case CurrentLocation.FAVORITES:
-      return (
-        <div className="page">
-          <Header userEmail={userEmail} isLoginScreen={isLoginScreen}/>
-          <main className="page__main page__main--favorites">
-            <FavoritesScreen />
-          </main>
-        </div>
-      );
-
-    case CurrentLocation.PROPERTY:
-      return (
-        <div className="page">
-          <Header userEmail={userEmail} isLoginScreen={isLoginScreen}/>
-          <main className="page__main page__main--property">
-            <PropertyScreen />
-          </main>
-        </div>
-      );
-
-    default:
-      return (
-        <div className="page page--gray page--main">
-          <Header userEmail={userEmail} isLoginScreen={isLoginScreen}/>
-          <main className="page__main page__main--index">
-            <MainScreen/>
-          </main>
-        </div>
-      );
-  }
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Layout userEmail={userEmail}/>}>
+          <Route index element={<Main />} />
+          <Route path={AppRoute.Login} element={<Auth/>} />
+          <Route path={AppRoute.Property} element={<Property />} />
+          <Route path={AppRoute.Favorites} element={<Favorites />} />
+        </Route>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
