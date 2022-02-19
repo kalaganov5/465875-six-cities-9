@@ -19,7 +19,10 @@ function App({userEmail}: appProps): JSX.Element {
         <Route path='/' element={<Layout userEmail={userEmail}/>}>
           <Route index element={<Main />} />
           <Route path={AppRoute.Login} element={<Auth/>} />
-          <Route path={AppRoute.Property} element={<Property />} />
+          <Route path={AppRoute.Property} >
+            <Route index  element={<NotFound />} />
+            <Route path=':id' element={<Property />} />
+          </Route>
           <Route path={AppRoute.Favorites} element={<Favorites />} />
         </Route>
         <Route path="*" element={<NotFound />} />

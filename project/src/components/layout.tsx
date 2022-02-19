@@ -1,13 +1,23 @@
 import {Outlet, useLocation} from 'react-router-dom';
 import Header from './header/header';
-import {appClassName} from 'const';
+import {appClassName, AppRoute} from 'const';
 
 type layoutProps = {
   userEmail: string
 }
 
 function Layout ({userEmail}:layoutProps):JSX.Element {
-  const location = useLocation().pathname;
+  const reProperty = /\/offer\/?$/;
+  const rePropertyWithId = /\/offer\/[0-9]{1,}/;
+  let location = useLocation().pathname;
+
+  if (location.match(rePropertyWithId)) {
+    // if offer location correct
+    location = AppRoute.Property;
+  } else if (location.match(reProperty)) {
+    // if offer id empty, set class as main page
+    location = AppRoute.Root;
+  }
 
   return (
     <div className={`page ${appClassName[location].page}`}>

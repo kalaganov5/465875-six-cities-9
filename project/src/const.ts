@@ -2,7 +2,7 @@ export enum AppRoute {
   Root = '/',
   Login = '/login',
   Favorites = '/favorites',
-  Property = '/property',
+  Property = '/offer',
 }
 
 export const appClassName: {

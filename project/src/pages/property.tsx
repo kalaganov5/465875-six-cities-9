@@ -1,7 +1,11 @@
 import {setRatingStyle} from 'utils/utils';
 import OfferOtherItem from 'components/offer-other-item/offer-other-item';
+import {useParams} from 'react-router-dom';
 
 function Property(): JSX.Element {
+  const params = useParams();
+  // eslint-disable-next-line no-console
+  console.log(params.id);
   return (
     <>
       <section className="property">
