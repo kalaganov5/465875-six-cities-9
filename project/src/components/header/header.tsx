@@ -1,4 +1,4 @@
-import {Link, useLocation} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import AuthMenu from './auth-menu/auth-menu';
 import {AppRoute} from 'const';
 
@@ -7,7 +7,7 @@ type headerProps = {
 }
 
 function Header({userEmail}: headerProps): JSX.Element {
-  const isLoginScreen = AppRoute.Login === useLocation().pathname;
+  const isLoginScreen = AppRoute.Login === window.location.pathname;
 
   return (
     <header className="header">
