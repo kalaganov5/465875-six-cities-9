@@ -1,7 +1,7 @@
 import {Link} from 'react-router-dom';
 import {AppRoute} from 'const';
 
-function Auth(): JSX.Element {
+function PageAuth(): JSX.Element {
   return (
     <div className="page__login-container container">
       <section className="login">
@@ -29,4 +29,4 @@ function Auth(): JSX.Element {
   );
 }
 
-export default Auth;
+export default PageAuth;

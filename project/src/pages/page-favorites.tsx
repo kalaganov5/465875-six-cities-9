@@ -2,7 +2,7 @@ import {AppRoute} from 'const';
 import {Link} from 'react-router-dom';
 import {setRatingStyle} from 'utils/utils';
 
-function Favorites(): JSX.Element {
+function PageFavorites(): JSX.Element {
   return (
     <div className="page__favorites-container container">
       <section className="favorites">
@@ -134,4 +134,4 @@ function Favorites(): JSX.Element {
   );
 }
 
-export default Favorites;
+export default PageFavorites;

@@ -1,11 +1,11 @@
 import {Route, BrowserRouter, Routes} from 'react-router-dom';
 import Layout from 'components/layout';
 import PrivateRoute from 'components/private-route';
-import Main from 'pages/main';
-import Auth from 'pages/auth';
-import Favorites from 'pages/favorites';
-import Property from 'pages/property';
-import NotFound from 'pages/not-found';
+import PageMain from 'pages/page-main';
+import PageAuth from 'pages/page-auth';
+import PageFavorites from 'pages/page-favorites';
+import PageProperty from 'pages/page-property';
+import PageNotFound from 'pages/page-not-found';
 import {AppRoute} from 'const';
 
 type appProps = {
@@ -18,21 +18,21 @@ function App({userEmail}: appProps): JSX.Element {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Layout userEmail={userEmail}/>}>
-          <Route index element={<Main />} />
-          <Route path={AppRoute.Login} element={<Auth/>} />
+          <Route index element={<PageMain />} />
+          <Route path={AppRoute.Login} element={<PageAuth/>} />
           <Route path={AppRoute.Property} >
-            <Route index  element={<NotFound />} />
-            <Route path=':id' element={<Property />} />
+            <Route index  element={<PageNotFound />} />
+            <Route path=':id' element={<PageProperty />} />
           </Route>
           <Route path={AppRoute.Favorites}
             element={
               <PrivateRoute isAuth={isAuth}>
-                <Favorites />
+                <PageFavorites />
               </PrivateRoute>
             }
           />
         </Route>
-        <Route path="*" element={<NotFound />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,7 +1,7 @@
 import CitiesMenu from 'components/cities-menu/cities-menu';
 import Offers from 'components/offers/offers';
 
-function Main(): JSX.Element {
+function PageMain(): JSX.Element {
   return (
     <>
       <h1 className="visually-hidden">Cities</h1>
@@ -11,4 +11,4 @@ function Main(): JSX.Element {
   );
 }
 
-export default Main;
+export default PageMain;
