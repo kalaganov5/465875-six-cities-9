@@ -1,5 +1,5 @@
 import {Outlet, useLocation} from 'react-router-dom';
-import Header from './header/header';
+import Header from 'components/header/header';
 import {appClassName, AppRoute} from 'const';
 
 type layoutProps = {

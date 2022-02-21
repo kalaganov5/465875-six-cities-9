@@ -1,5 +1,5 @@
 import {Link} from 'react-router-dom';
-import {AppRoute} from '../../../const';
+import {AppRoute} from 'const';
 
 type menuProps = {
   userEmail: string,
@@ -18,7 +18,7 @@ function AuthMenu({userEmail}: menuProps): JSX.Element {
               </div>
               <span className="header__user-name user__name">{userEmail}</span>
             </Link>
-          </li> : ''}
+          </li> : null}
 
         <li className="header__nav-item">
           <Link className="header__nav-link" to={AppRoute.Login}>

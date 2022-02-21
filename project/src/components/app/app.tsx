@@ -1,6 +1,6 @@
 import {Route, BrowserRouter, Routes} from 'react-router-dom';
-import Layout from '../layout';
-import PrivateRoute from '../private-route';
+import Layout from 'components/layout';
+import PrivateRoute from 'components/private-route';
 import Main from 'pages/main';
 import Auth from 'pages/auth';
 import Favorites from 'pages/favorites';
