@@ -24,13 +24,9 @@ function App({userEmail}: appProps): JSX.Element {
             <Route index  element={<PageNotFound />} />
             <Route path=':id' element={<PageProperty />} />
           </Route>
-          <Route path={AppRoute.Favorites}
-            element={
-              <PrivateRoute isAuth={isAuth}>
-                <PageFavorites />
-              </PrivateRoute>
-            }
-          />
+          <Route path={AppRoute.Favorites} element={<PrivateRoute isAuth={isAuth}/>} >
+            <Route path={AppRoute.Favorites}  element={<PageFavorites />} />
+          </Route>
         </Route>
         <Route path="*" element={<PageNotFound />} />
       </Routes>
