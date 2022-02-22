@@ -1,6 +1,7 @@
 import {Outlet, useLocation} from 'react-router-dom';
 import Header from 'components/header/header';
 import {appClassName, AppRoute} from 'const';
+import clsx from 'clsx';
 
 type layoutProps = {
   userEmail: string
@@ -20,9 +21,9 @@ function Layout ({userEmail}:layoutProps):JSX.Element {
   }
 
   return (
-    <div className={`page ${appClassName[location].page}`}>
+    <div className={clsx('page', appClassName[location].page)}>
       <Header userEmail={userEmail}/>
-      <main className={`page__main ${appClassName[location].main}`}>
+      <main className={clsx('page__main', appClassName[location].main)} >
         <Outlet />
       </main>
     </div>
