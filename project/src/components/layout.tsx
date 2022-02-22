@@ -1,4 +1,4 @@
-import {Outlet} from 'react-router-dom';
+import {Outlet, useLocation} from 'react-router-dom';
 import Header from 'components/header/header';
 import {appClassName, AppRoute} from 'const';
 
@@ -9,7 +9,7 @@ type layoutProps = {
 function Layout ({userEmail}:layoutProps):JSX.Element {
   const reProperty = /\/offer\/?$/;
   const rePropertyWithId = /\/offer\/[0-9]{1,}/;
-  let location = window.location.pathname;
+  let location = useLocation().pathname;
 
   if (location.match(rePropertyWithId)) {
     // if offer location correct
