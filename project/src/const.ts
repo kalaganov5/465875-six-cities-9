@@ -5,6 +5,8 @@ export enum AppRoute {
   Property = '/offer',
 }
 
+export const cities = ['Paris', 'Cologne', 'Brussels', 'Amsterdam', 'Hamburg', 'Dusseldorf'];
+
 export const appClassName: {
   [K: string]: {
     [K: string]: string,

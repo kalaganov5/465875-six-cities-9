@@ -1,41 +1,21 @@
-import {Link} from 'react-router-dom';
-import {AppRoute} from 'const';
+import {cities} from 'const';
+import CityItem from './city-item/city-item';
 
-function CitiesMenu(): JSX.Element {
+type CitiesType = {
+  currentCity: string | null,
+}
+
+function CitiesMenu({currentCity}: CitiesType): JSX.Element {
   return (
     <div className="tabs">
       <section className="locations container">
         <ul className="locations__list tabs__list">
-          <li className="locations__item">
-            <Link className="locations__item-link tabs__item  tabs__item--active" to={AppRoute.Root}>
-              <span>Paris</span>
-            </Link>
-          </li>
-          <li className="locations__item">
-            <Link className="locations__item-link tabs__item" to={AppRoute.Root}>
-              <span>Cologne</span>
-            </Link>
-          </li>
-          <li className="locations__item">
-            <Link className="locations__item-link tabs__item" to={AppRoute.Root}>
-              <span>Brussels</span>
-            </Link>
-          </li>
-          <li className="locations__item">
-            <Link className="locations__item-link tabs__item" to={AppRoute.Root}>
-              <span>Amsterdam</span>
-            </Link>
-          </li>
-          <li className="locations__item">
-            <Link className="locations__item-link tabs__item" to={AppRoute.Root}>
-              <span>Hamburg</span>
-            </Link>
-          </li>
-          <li className="locations__item">
-            <Link className="locations__item-link tabs__item" to={AppRoute.Root}>
-              <span>Dusseldorf</span>
-            </Link>
-          </li>
+          {cities.map((city) => (
+            <CityItem key={city} city={city} isActive={
+              (currentCity || 'paris') === city.toLocaleLowerCase()
+            }
+            />
+          ))}
         </ul>
       </section>
     </div>
