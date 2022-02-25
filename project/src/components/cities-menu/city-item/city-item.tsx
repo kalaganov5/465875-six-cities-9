@@ -3,14 +3,13 @@ import {AppRoute} from 'const';
 import clsx from 'clsx';
 
 type CityItemTypes = {
-  key: string,
   city: string,
   isActive: boolean,
 }
 
-function CityItem({key, city, isActive}: CityItemTypes): JSX.Element {
+function CityItem({city, isActive}: CityItemTypes): JSX.Element {
   return (
-    <li key={key} className="locations__item">
+    <li className="locations__item">
       <Link className={clsx(
         'locations__item-link',
         'tabs__item',

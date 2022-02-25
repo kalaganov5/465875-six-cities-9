@@ -2,7 +2,7 @@ import {cities} from 'const';
 import CityItem from './city-item/city-item';
 
 type CitiesType = {
-  currentCity: string | null,
+  currentCity: string,
 }
 
 function CitiesMenu({currentCity}: CitiesType): JSX.Element {
@@ -12,7 +12,7 @@ function CitiesMenu({currentCity}: CitiesType): JSX.Element {
         <ul className="locations__list tabs__list">
           {cities.map((city) => (
             <CityItem key={city} city={city} isActive={
-              (currentCity || 'paris') === city.toLocaleLowerCase()
+              currentCity.toLocaleLowerCase() === city.toLocaleLowerCase()
             }
             />
           ))}
