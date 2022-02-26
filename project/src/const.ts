@@ -1,3 +1,5 @@
+import {AppClassName} from './types/app';
+
 export enum AppRoute {
   Root = '/',
   Login = '/login',
@@ -5,13 +7,9 @@ export enum AppRoute {
   Property = '/offer',
 }
 
-export const cities = ['Paris', 'Cologne', 'Brussels', 'Amsterdam', 'Hamburg', 'Dusseldorf'];
+export const cities:string[] = ['Paris', 'Cologne', 'Brussels', 'Amsterdam', 'Hamburg', 'Dusseldorf'];
 
-export const appClassName: {
-  [K: string]: {
-    [K: string]: string,
-  },
-} = {
+export const appClassName: AppClassName = {
   [AppRoute.Root]: {
     'page': 'page--gray page--main',
     'main': 'page__main--index',
