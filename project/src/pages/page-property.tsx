@@ -1,11 +1,8 @@
 import {setRatingStyle} from 'utils/utils';
 import OfferOtherItem from 'components/offer-other-item/offer-other-item';
-import {useParams} from 'react-router-dom';
 
 function PageProperty(): JSX.Element {
-  const params = useParams();
-  // eslint-disable-next-line no-console
-  console.log(params.id);
+  const otherData = ['', '',  ''];
   return (
     <>
       <section className="property">
@@ -207,9 +204,13 @@ function PageProperty(): JSX.Element {
         <section className="near-places places">
           <h2 className="near-places__title">Other places in the neighbourhood</h2>
           <div className="near-places__list places__list">
-            <OfferOtherItem />
-            <OfferOtherItem />
-            <OfferOtherItem />
+            {
+              otherData.map(() => (
+                // позже key с данными доработать
+                // eslint-disable-next-line react/jsx-key
+                <OfferOtherItem />
+              ))
+            }
           </div>
         </section>
       </div>
