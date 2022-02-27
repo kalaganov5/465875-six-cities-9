@@ -22,7 +22,7 @@ function App({userEmail}: appProps): JSX.Element {
           <Route path={AppRoute.Login} element={<PageAuth/>} />
           <Route path={AppRoute.Property} >
             <Route index  element={<PageNotFound />} />
-            <Route path=':id' element={<PageProperty />} />
+            <Route path={AppRoute.PropertyId} element={<PageProperty />} />
           </Route>
           <Route path={AppRoute.Favorites} element={<PrivateRoute isAuth={isAuth}/>} >
             <Route path={AppRoute.Favorites}  element={<PageFavorites />} />

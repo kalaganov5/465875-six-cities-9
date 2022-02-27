@@ -5,6 +5,7 @@ export enum AppRoute {
   Login = '/login',
   Favorites = '/favorites',
   Property = '/offer',
+  PropertyId = ':id',
 }
 
 export const cities:string[] = ['Paris', 'Cologne', 'Brussels', 'Amsterdam', 'Hamburg', 'Dusseldorf'];
