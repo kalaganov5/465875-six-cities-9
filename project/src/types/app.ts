@@ -1,19 +1,9 @@
-// в будущем переработаю
+type PageCode = {
+  'page': string,
+  'main': string,
+}
+
+// в будущем доработаю
 export type AppClassName = {
-  ['/']: {
-    'page': string,
-    'main': string,
-  },
-  '/login': {
-    'page': string,
-    'main': string,
-  },
-  '/favorites': {
-    'page': string,
-    'main': string,
-  },
-  '/offer': {
-    'page': string,
-    'main': string,
-  }
+  [key: string]: PageCode;
 };
