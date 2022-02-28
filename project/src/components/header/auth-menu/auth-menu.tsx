@@ -1,24 +1,29 @@
+import {Link} from 'react-router-dom';
+import {AppRoute} from 'const';
+
 type menuProps = {
   userEmail: string,
 }
 
 function AuthMenu({userEmail}: menuProps): JSX.Element {
+  const isAuth = userEmail !== '';
+
   return (
     <nav className="header__nav">
       <ul className="header__nav-list">
-        {userEmail !== '' ?
+        {isAuth ?
           <li className="header__nav-item user">
-            <a className="header__nav-link header__nav-link--profile" href="/">
+            <Link className="header__nav-link header__nav-link--profile" to={AppRoute.Favorites}>
               <div className="header__avatar-wrapper user__avatar-wrapper">
               </div>
               <span className="header__user-name user__name">{userEmail}</span>
-            </a>
-          </li> : ''}
+            </Link>
+          </li> : null}
 
         <li className="header__nav-item">
-          <a className="header__nav-link" href="/">
-            <span className="header__signout">{userEmail !== '' ? 'Sign out' : 'Sign in'}</span>
-          </a>
+          <Link className="header__nav-link" to={AppRoute.Login}>
+            <span className="header__signout">{isAuth ? 'Sign out' : 'Sign in'}</span>
+          </Link>
         </li>
       </ul>
     </nav>
