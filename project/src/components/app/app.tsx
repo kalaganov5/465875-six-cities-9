@@ -7,18 +7,23 @@ import PageFavorites from 'pages/page-favorites';
 import PageProperty from 'pages/page-property';
 import PageNotFound from 'pages/page-not-found';
 import {AppRoute} from 'const';
+import {Offers} from '../../types/app';
 
 type appProps = {
   userEmail: string,
+  offers: Offers,
 }
 
-function App({userEmail}: appProps): JSX.Element {
+function App({userEmail, offers}: appProps): JSX.Element {
+
+  // eslint-disable-next-line no-console
+  console.log(offers);
   const isAuth = userEmail !== '';
   return (
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Layout userEmail={userEmail}/>}>
-          <Route index element={<PageMain />} />
+          <Route index element={<PageMain offers = {offers} />} />
           <Route path={AppRoute.Login} element={<PageAuth/>} />
           <Route path={AppRoute.Property} >
             <Route index  element={<PageNotFound />} />

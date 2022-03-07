@@ -1,6 +1,11 @@
 import OfferItem from './offer-item/offer-item';
+import {Offers as OffersType} from '../../types/app';
 
-function Offers(): JSX.Element {
+type OffersProps = {
+  offers: OffersType,
+}
+
+function Offers({offers}: OffersProps): JSX.Element {
   return (
     <div className="cities">
       <div className="cities__places-container container">
@@ -23,10 +28,7 @@ function Offers(): JSX.Element {
             </ul>
           </form>
           <div className="cities__places-list places__list tabs__content">
-            <OfferItem />
-            <OfferItem />
-            <OfferItem />
-            <OfferItem />
+            {offers.map((offer) => (<OfferItem key = {offer.id} offer = {offer}/>))}
           </div>
         </section>
         <div className="cities__right-section">
