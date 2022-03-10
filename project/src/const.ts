@@ -1,4 +1,4 @@
-import {AppClassName} from './types/app';
+import {AppClassName, citiesTypes} from 'types/app';
 
 export enum AppRoute {
   Root = '/',
@@ -8,23 +8,41 @@ export enum AppRoute {
   PropertyId = ':id',
 }
 
-export const cities:string[] = ['Paris', 'Cologne', 'Brussels', 'Amsterdam', 'Hamburg', 'Dusseldorf'];
+export const cities:citiesTypes = ['Paris', 'Cologne', 'Brussels', 'Amsterdam', 'Hamburg', 'Dusseldorf'];
 
 export const appClassName: AppClassName = {
   [AppRoute.Root]: {
-    'page': 'page--gray page--main',
-    'main': 'page__main--index',
+    'page': {
+      'default': 'page--gray page--main',
+    },
+    'main': {
+      'default': 'page__main--index',
+    },
   },
   [AppRoute.Login]: {
-    'page': 'page--gray page--login',
-    'main': 'page__main--login',
+    'page': {
+      'default': 'page--gray page--login',
+    },
+    'main': {
+      'default': 'page__main--login',
+    },
   },
   [AppRoute.Favorites]: {
-    'page': '',
-    'main': 'page__main--favorites',
+    'page': {
+      'default': '',
+      'empty': 'page--favorites-empty',
+    },
+    'main': {
+      'default': 'page__main--favorites',
+      'empty': 'page__main--favorites page__main--favorites-empty',
+    },
   },
   [AppRoute.Property]: {
-    'page': '',
-    'main': 'page__main--property',
+    'page': {
+      'default': '',
+    },
+    'main': {
+      'default': 'page__main--property',
+    },
   },
 };

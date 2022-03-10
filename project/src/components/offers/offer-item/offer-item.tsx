@@ -1,14 +1,15 @@
 import {ratingToCss} from 'utils/utils';
 import {Link} from 'react-router-dom';
 import {AppRoute} from 'const';
-import {Offer} from '../../../types/app';
+import {Offer} from 'types/app';
 import clsx from 'clsx';
 
 type OfferItemProps = {
+  offerType: 'favorites' | 'cities',
   offer: Offer;
 }
 
-function OfferItem({offer}: OfferItemProps): JSX.Element {
+function OfferItem({offerType, offer}: OfferItemProps): JSX.Element {
 
   const {id, price, previewImage, isFavorite, rating, title, type, isPremium} = offer;
   const isFavoriteClass = isFavorite ? 'place-card__bookmark-button--active' : '';
@@ -19,14 +20,14 @@ function OfferItem({offer}: OfferItemProps): JSX.Element {
   ) : '';
 
   return (
-    <article className="cities__place-card place-card">
+    <article className={clsx(`${offerType === 'favorites' ? 'favorites__card' : 'cities__place-card'}`, 'place-card')}>
       {isPremiumMarkup}
-      <div className="cities__image-wrapper place-card__image-wrapper">
+      <div className={clsx(`${offerType}__image-wrapper`, 'place-card__image-wrapper')}>
         <Link to={`${AppRoute.Property}/${id}`}>
           <img className="place-card__image" src={previewImage} width="260" height="200" alt="" />
         </Link>
       </div>
-      <div className="place-card__info">
+      <div className={clsx(`${offerType === 'favorites' ? 'favorites__card-info': ''}`,'place-card__info')}>
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
             <b className="place-card__price-value">&euro;{price}</b>
@@ -46,7 +47,7 @@ function OfferItem({offer}: OfferItemProps): JSX.Element {
           </div>
         </div>
         <h2 className="place-card__name">
-          <Link to={AppRoute.Property}>{title}</Link>
+          <Link to={`${AppRoute.Property}/${id}`}>{title}</Link>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>

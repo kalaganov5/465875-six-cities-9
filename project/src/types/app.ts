@@ -1,7 +1,15 @@
 type PageCode = {
-  'page': string,
-  'main': string,
+  'page': {
+    'default': string,
+    'empty'?: string,
+  },
+  'main': {
+    'default': string,
+    'empty'?: string,
+  },
 }
+
+export type citiesTypes = string[];
 
 // в будущем доработаю
 export type AppClassName = {
