@@ -46,3 +46,8 @@ export const appClassName: AppClassName = {
     },
   },
 };
+
+export const OFFER_CARD = {
+  favorites: 'favorites',
+  cities: 'cities',
+};

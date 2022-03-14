@@ -1,18 +1,23 @@
 import {ratingToCss} from 'utils/utils';
 import {Link} from 'react-router-dom';
-import {AppRoute} from 'const';
+import {AppRoute, OFFER_CARD} from 'const';
 import {Offer} from 'types/app';
 import clsx from 'clsx';
 
 type OfferItemProps = {
-  offerType: 'favorites' | 'cities',
+  offerType: string,
   offer: Offer;
+  onActivateOffer?: () => void,
+  onDeactivateOffer?: () => void,
 }
 
-function OfferItem({offerType, offer}: OfferItemProps): JSX.Element {
+function OfferItem({offerType, offer, onActivateOffer, onDeactivateOffer}: OfferItemProps): JSX.Element {
 
   const {id, price, previewImage, isFavorite, rating, title, type, isPremium} = offer;
   const isFavoriteClass = isFavorite ? 'place-card__bookmark-button--active' : '';
+
+  const isOfferFavorite = offerType === OFFER_CARD.favorites;
+
   const isPremiumMarkup = isPremium ? (
     <div className="place-card__mark">
       <span>Premium</span>
@@ -20,14 +25,18 @@ function OfferItem({offerType, offer}: OfferItemProps): JSX.Element {
   ) : '';
 
   return (
-    <article className={clsx(`${offerType === 'favorites' ? 'favorites__card' : 'cities__place-card'}`, 'place-card')}>
+    <article
+      className = {clsx(`${isOfferFavorite ? 'favorites__card' : 'cities__place-card'}`, 'place-card')}
+      onMouseEnter = {onActivateOffer}
+      onMouseLeave = {onDeactivateOffer}
+    >
       {isPremiumMarkup}
       <div className={clsx(`${offerType}__image-wrapper`, 'place-card__image-wrapper')}>
         <Link to={`${AppRoute.Property}/${id}`}>
           <img className="place-card__image" src={previewImage} width="260" height="200" alt="" />
         </Link>
       </div>
-      <div className={clsx(`${offerType === 'favorites' ? 'favorites__card-info': ''}`,'place-card__info')}>
+      <div className={clsx(`${isOfferFavorite ? 'favorites__card-info': ''}`,'place-card__info')}>
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
             <b className="place-card__price-value">&euro;{price}</b>
@@ -56,3 +65,4 @@ function OfferItem({offerType, offer}: OfferItemProps): JSX.Element {
 }
 
 export default OfferItem;
+

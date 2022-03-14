@@ -1,6 +1,7 @@
+import {useState} from 'react';
 import {Offers as OffersType} from 'types/app';
 import OfferItem from './offer-item/offer-item';
-import {AppRoute} from 'const';
+import {AppRoute, OFFER_CARD} from 'const';
 import OffersFavorites from './offers-favorites/offers-favorites';
 
 type OffersProps = {
@@ -9,7 +10,7 @@ type OffersProps = {
 }
 
 function Offers({route, offers}: OffersProps): JSX.Element {
-
+  const [, setActiveOffer] = useState(null as number | null);
   switch(route) {
     case AppRoute.Favorites:
       return (
@@ -40,7 +41,27 @@ function Offers({route, offers}: OffersProps): JSX.Element {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                {offers.map((offer) => (<OfferItem offerType = {'cities'} key = {offer.id} offer = {offer}/>))}
+                {offers.map((offer) => (
+                  <OfferItem
+                    offerType = {OFFER_CARD.cities}
+                    key = {offer.id}
+                    offer = {offer}
+                    onActivateOffer = {
+                      () => {
+                        // eslint-disable-next-line no-console
+                        console.log('hover', offer.id);
+                        return setActiveOffer(offer.id);
+                      }
+                    }
+                    onDeactivateOffer={
+                      () => {
+                        // eslint-disable-next-line no-console
+                        console.log('leave hover', offer.id);
+                        return setActiveOffer(null);
+                      }
+                    }
+                  />),
+                )}
               </div>
             </section>
             <div className="cities__right-section">
