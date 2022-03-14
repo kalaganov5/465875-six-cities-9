@@ -62,4 +62,6 @@ export type Review = {
   rating: number,
 }
 
+export type Reviews = Review[];
+
 export type Offers = Offer[];

@@ -1,7 +1,14 @@
 import {setRatingStyle} from 'utils/utils';
 import OfferOtherItem from 'components/offer-other-item/offer-other-item';
+import {Reviews} from 'types/app';
 
-function PageProperty(): JSX.Element {
+type PagePropertyProps = {
+  reviews: Reviews,
+}
+
+function PageProperty({reviews}: PagePropertyProps): JSX.Element {
+  // eslint-disable-next-line no-console
+  console.log(reviews);
   const otherData = ['', '',  ''];
   return (
     <>

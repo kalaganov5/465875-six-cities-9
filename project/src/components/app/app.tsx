@@ -7,15 +7,16 @@ import PageFavorites from 'pages/page-favorites';
 import PageProperty from 'pages/page-property';
 import PageNotFound from 'pages/page-not-found';
 import {AppRoute} from 'const';
-import {Offers} from 'types/app';
+import {Offers, Reviews} from 'types/app';
 
 type appProps = {
   userEmail: string,
   offers: Offers,
   offersFavorite: Offers,
+  reviews: Reviews,
 }
 
-function App({userEmail, offers, offersFavorite}: appProps): JSX.Element {
+function App({userEmail, offers, offersFavorite, reviews}: appProps): JSX.Element {
 
   const isAuth = userEmail !== '';
   return (
@@ -26,7 +27,7 @@ function App({userEmail, offers, offersFavorite}: appProps): JSX.Element {
           <Route path={AppRoute.Login} element={<PageAuth/>} />
           <Route path={AppRoute.Property} >
             <Route index  element={<PageNotFound />} />
-            <Route path={AppRoute.PropertyId} element={<PageProperty />} />
+            <Route path={AppRoute.PropertyId} element={<PageProperty reviews = {reviews}/>} />
           </Route>
           <Route path={AppRoute.Favorites} element={<PrivateRoute isAuth={isAuth}/>} >
             <Route path={AppRoute.Favorites}  element={<PageFavorites offers = {offersFavorite} />} />

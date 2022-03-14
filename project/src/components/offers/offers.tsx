@@ -18,8 +18,6 @@ function Offers({route, offers}: OffersProps): JSX.Element {
         </ul>
       );
     default:
-      // eslint-disable-next-line no-console
-      console.log(offers);
       return (
         <div className="cities">
           <div className="cities__places-container container">
