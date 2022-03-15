@@ -6,10 +6,10 @@ import {Offers} from 'types/app';
 
 type layoutProps = {
   userEmail: string,
-  offersFavorite: Offers,
+  offersFavorites: Offers,
 }
 
-function Layout ({userEmail, offersFavorite}:layoutProps):JSX.Element {
+function Layout ({userEmail, offersFavorites}:layoutProps):JSX.Element {
   const reProperty = /\/offer\/?$/;
   const rePropertyWithId = /\/offer\/[0-9]{1,}/;
   let location = useLocation().pathname;
@@ -27,7 +27,7 @@ function Layout ({userEmail, offersFavorite}:layoutProps):JSX.Element {
   pageClassName = appClassName[location].page.default;
   mainClassName = appClassName[location].main.default;
 
-  if (offersFavorite.length === 0 && location === AppRoute.Favorites) {
+  if (offersFavorites.length === 0 && location === AppRoute.Favorites) {
     pageClassName = appClassName[location].page.empty;
     mainClassName = appClassName[location].main.empty;
   }

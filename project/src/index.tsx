@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from 'components/app/app';
-import {offers, offersFavorite} from 'mocks/offers';
+import {offers, offersFavorites} from 'mocks/offers';
 import {reviews} from 'mocks/reviews';
 
 const Settings = {
@@ -13,7 +13,7 @@ ReactDOM.render(
     <App
       userEmail = {Settings.USER_EMAIL}
       offers = {offers}
-      offersFavorite = {offersFavorite}
+      offersFavorites = {offersFavorites}
       reviews = {reviews}
     />
   </React.StrictMode>,

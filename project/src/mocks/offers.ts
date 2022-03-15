@@ -416,4 +416,4 @@ export const offers: Offer[] = [
   },
 ];
 
-export const offersFavorite = offers.filter((offer) => (offer.isFavorite));
+export const offersFavorites = offers.filter((offer) => (offer.isFavorite));
