@@ -22,7 +22,7 @@ function OfferItem({offerType, offer, onActivateOffer, onDeactivateOffer}: Offer
     <div className="place-card__mark">
       <span>Premium</span>
     </div>
-  ) : '';
+  ) : null;
 
   return (
     <article
