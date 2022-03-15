@@ -51,3 +51,26 @@ export const OFFER_CARD = {
   favorites: 'favorites',
   cities: 'cities',
 };
+
+export const ratingData = [
+  {
+    name: 'perfect',
+    value: 5,
+  },
+  {
+    name: 'good',
+    value: 4,
+  },
+  {
+    name: 'not bad',
+    value: 3,
+  },
+  {
+    name: 'badly',
+    value: 2,
+  },
+  {
+    name: 'terribly',
+    value: 1,
+  },
+];
