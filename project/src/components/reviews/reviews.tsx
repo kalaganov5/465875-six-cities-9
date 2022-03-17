@@ -9,15 +9,14 @@ type ReviewTypes = {
 }
 function ReviewItem ({review}: ReviewTypes) {
   const {comments, user, rating} = review;
-  const {name, avatar} = user;
   return (
     <li className="reviews__item">
       <div className="reviews__user user">
         <div className="reviews__avatar-wrapper user__avatar-wrapper">
-          <img className="reviews__avatar user__avatar" src={`img/${avatar}`} width="54" height="54" alt="Reviews avatar" />
+          <img className="reviews__avatar user__avatar" src={`img/${user.avatar}`} width="54" height="54" alt="Reviews avatar" />
         </div>
         <span className="reviews__user-name">
-          {name}
+          {user.name}
         </span>
       </div>
       <div className="reviews__info">

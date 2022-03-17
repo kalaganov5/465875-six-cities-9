@@ -12,20 +12,20 @@ function PageFavorites({offers}: OffersProps): JSX.Element {
 
   return (
     <div className={clsx('page__favorites-container', 'container')}>
-      <section className={clsx('favorites', isNothingFavorites ? 'favorites--empty' : '')}>
+      <section className={clsx(['favorites', {'favorites--empty' : isNothingFavorites}])}>
         <h1 className={
-          clsx(isNothingFavorites ?
-            'visually-hidden' :
-            'favorites__title')
+          clsx(['favorites__title', { 'visually-hidden': isNothingFavorites}])
         }
         >{isNothingFavorites ? 'Favorites (empty)' : 'Saved listing'}
         </h1>
-        {isNothingFavorites ?
+        {isNothingFavorites ? (
           <div className="favorites__status-wrapper">
             <b className="favorites__status">Nothing yet saved.</b>
             <p className="favorites__status-description">Save properties to narrow down search or plan your future trips.</p>
-          </div> :
-          <Offers route={AppRoute.Favorites} offers={offers}/>}
+          </div>
+        ) : (
+          <Offers route={AppRoute.Favorites} offers={offers}/>
+        )}
       </section>
     </div>
   );
