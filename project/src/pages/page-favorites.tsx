@@ -1,6 +1,5 @@
-import Offers from 'components/offers/offers';
+import OffersFavoritesList from 'components/offers-favorites-list/offers-favorites-list';
 import {Offers as OffersType} from 'types/app';
-import {AppRoute} from 'const';
 import clsx from 'clsx';
 
 type OffersProps = {
@@ -24,7 +23,7 @@ function PageFavorites({offers}: OffersProps): JSX.Element {
             <p className="favorites__status-description">Save properties to narrow down search or plan your future trips.</p>
           </div>
         ) : (
-          <Offers route={AppRoute.Favorites} offers={offers}/>
+          <OffersFavoritesList offers={offers}/>
         )}
       </section>
     </div>

@@ -4,7 +4,7 @@ export const offers: Offer[] = [
   {
     id: 1,
     city: {
-      name: 'Kiev',
+      name: 'Paris',
       location: {
         latitude: 52.370216,
         longitude: 4.895168,
@@ -63,7 +63,7 @@ export const offers: Offer[] = [
   {
     id: 2,
     city: {
-      name: 'Moscow',
+      name: 'Cologne',
       location: {
         latitude: 52.370216,
         longitude: 4.895168,
@@ -181,7 +181,7 @@ export const offers: Offer[] = [
   {
     id: 4,
     city: {
-      name: 'Minsk',
+      name: 'Cologne',
       location: {
         latitude: 52.370216,
         longitude: 4.895168,
@@ -299,7 +299,7 @@ export const offers: Offer[] = [
   {
     id: 6,
     city: {
-      name: 'Minsk',
+      name: 'Brussels',
       location: {
         latitude: 52.370216,
         longitude: 4.895168,
@@ -358,7 +358,7 @@ export const offers: Offer[] = [
   {
     id: 7,
     city: {
-      name: 'Minsk',
+      name: 'Brussels',
       location: {
         latitude: 52.370216,
         longitude: 4.895168,
