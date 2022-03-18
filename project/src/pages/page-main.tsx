@@ -1,7 +1,7 @@
 import CitiesMenu from 'components/cities-menu/cities-menu';
-import Offers from 'components/offers/offers';
+import OffersCitiesList from 'components/offers-cities-list/offers-cities-list';
 import {useSearchParams} from 'react-router-dom';
-import {cities, AppRoute} from 'const';
+import {cities} from 'const';
 import {Offers as OffersType} from 'types/app';
 
 type PageMainProps = {
@@ -18,7 +18,7 @@ function PageMain({offers}: PageMainProps): JSX.Element {
     <>
       <h1 className="visually-hidden">Cities</h1>
       <CitiesMenu currentCity={isCityCorrect ? cityParam : cities[0]} />
-      <Offers route={AppRoute.Root} offers = {offers} />
+      <OffersCitiesList offers = {offers} />
     </>
   );
 }
