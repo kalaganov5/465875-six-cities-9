@@ -1,3 +1,4 @@
+import {generatePath} from 'react-router';
 import {ratingToCss} from 'utils/rating-to-css';
 import {Link} from 'react-router-dom';
 import {AppRoute, OFFER_CARD} from 'const';
@@ -36,7 +37,13 @@ function OfferItem({offerType, offer, onActivateOffer, onDeactivateOffer}: Offer
         clsx(offerType ? `${offerType}__image-wrapper` : '', 'place-card__image-wrapper')
       }
       >
-        <Link to={`${AppRoute.Property}/${id}`}>
+        <Link
+          to={
+            generatePath(AppRoute.Property, {
+              id: id.toString(),
+            })
+          }
+        >
           <img className="place-card__image" src={previewImage} width="260" height="200" alt="" />
         </Link>
       </div>
@@ -60,7 +67,13 @@ function OfferItem({offerType, offer, onActivateOffer, onDeactivateOffer}: Offer
           </div>
         </div>
         <h2 className="place-card__name">
-          <Link to={`${AppRoute.Property}/${id}`}>{title}</Link>
+          <Link to={
+            generatePath(AppRoute.Property, {
+              id: id.toString(),
+            })
+          }
+          >{title}
+          </Link>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>

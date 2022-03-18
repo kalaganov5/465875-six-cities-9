@@ -4,8 +4,7 @@ export enum AppRoute {
   Root = '/',
   Login = '/login',
   Favorites = '/favorites',
-  Property = '/offer',
-  PropertyId = ':id',
+  Property = '/offer/:id',
 }
 
 export const cities:citiesTypes = ['Paris', 'Cologne', 'Brussels', 'Amsterdam', 'Hamburg', 'Dusseldorf'];
