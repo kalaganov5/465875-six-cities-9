@@ -1,4 +1,4 @@
-import {ratingToCss} from 'utils/utils';
+import {ratingToCss} from 'utils/rating-to-css';
 import {Link} from 'react-router-dom';
 import {AppRoute, OFFER_CARD} from 'const';
 import {Offer} from 'types/app';

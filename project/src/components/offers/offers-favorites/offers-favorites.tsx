@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import {AppRoute} from 'const';
 import OfferItem from '../offer-item/offer-item';
 
-type OffersPlaceItemsProps = {
+interface OffersPlaceItemsProps {
   currentCity: string,
   offers: OffersType,
 }

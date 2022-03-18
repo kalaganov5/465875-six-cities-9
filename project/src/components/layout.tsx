@@ -12,9 +12,8 @@ type layoutProps = {
 function Layout ({userEmail, offersFavorites}:layoutProps):JSX.Element {
   const reProperty = /\/offer\/?$/;
   const rePropertyWithId = /\/offer\/[0-9]{1,}/;
+  const emptyOffersList = offersFavorites.length === 0;
   let location = useLocation().pathname;
-  let pageClassName;
-  let mainClassName;
 
   if (location.match(rePropertyWithId)) {
     // if offer location correct
@@ -24,18 +23,20 @@ function Layout ({userEmail, offersFavorites}:layoutProps):JSX.Element {
     location = AppRoute.Root;
   }
 
-  pageClassName = appClassName[location].page.default;
-  mainClassName = appClassName[location].main.default;
-
-  if (offersFavorites.length === 0 && location === AppRoute.Favorites) {
-    pageClassName = appClassName[location].page.empty;
-    mainClassName = appClassName[location].main.empty;
-  }
-
   return (
-    <div className={clsx('page', pageClassName)}>
+    <div className={
+      clsx(['page', appClassName[location].page[emptyOffersList && (location === AppRoute.Favorites) ? 'empty' : 'default']])
+    }
+    >
       <Header userEmail={userEmail}/>
-      <main className={clsx('page__main', mainClassName)} >
+      <main className={
+        clsx(['page__main',
+          appClassName[location]
+            .main[emptyOffersList && (location === AppRoute.Favorites) ? 'empty' : 'default'],
+        ],
+        )
+      }
+      >
         <Outlet />
       </main>
     </div>

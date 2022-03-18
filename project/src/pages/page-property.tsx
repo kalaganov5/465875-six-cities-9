@@ -1,4 +1,4 @@
-import {setRatingStyle} from 'utils/utils';
+import {setRatingStyle} from 'utils/rating-to-css';
 import OfferOtherItem from 'components/offer-other-item/offer-other-item';
 import FormReview from 'components/form-review/form-review';
 import {Reviews as ReviewsTypes} from 'types/app';

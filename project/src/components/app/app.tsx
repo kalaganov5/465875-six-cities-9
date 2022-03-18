@@ -9,7 +9,7 @@ import PageNotFound from 'pages/page-not-found';
 import {AppRoute} from 'const';
 import {Offers, Reviews} from 'types/app';
 
-type AppProps = {
+interface AppProps {
   userEmail: string,
   offers: Offers,
   offersFavorites: Offers,

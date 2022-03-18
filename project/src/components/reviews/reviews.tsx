@@ -1,5 +1,5 @@
 import {Review, Reviews as ReviewsTypes} from 'types/app';
-import {ratingToCss} from 'utils/utils';
+import {ratingToCss} from 'utils/rating-to-css';
 
 type ReviewsProps = {
   reviews: ReviewsTypes,

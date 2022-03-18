@@ -2,7 +2,7 @@ import {useState, ChangeEvent} from 'react';
 import {ratingData} from 'const';
 
 function FormReview ():JSX.Element {
-  const [, setRating] = useState(0);
+  const [, setRating] = useState<number>(-1);
   const [review, setReview] = useState('');
   const [isRatingValid, setRatingValid] = useState(false);
   const [isReviewValid, setReviewValid] = useState(false);

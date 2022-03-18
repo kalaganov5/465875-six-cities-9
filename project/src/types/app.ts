@@ -29,7 +29,12 @@ type Location = {
   zoom: number,
 }
 
-export type Offer = {
+type OfferImage = {
+  src: string,
+  description: string,
+}
+
+export interface Offer {
   id: number,
   city: {
     name: string,
@@ -39,10 +44,7 @@ export type Offer = {
   description: string,
   host: User,
   previewImage: string,
-    images: {
-      src: string,
-      description: string,
-    }[],
+    images: OfferImage[],
   isFavorite: boolean,
   isPremium: boolean,
   rating: number,

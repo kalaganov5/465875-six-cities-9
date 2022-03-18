@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom';
 import {AppRoute} from 'const';
-import {setRatingStyle} from 'utils/utils';
+import {setRatingStyle} from 'utils/rating-to-css';
 
 function OfferOtherItem ():JSX.Element {
   return (

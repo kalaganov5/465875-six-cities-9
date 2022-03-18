@@ -10,7 +10,7 @@ type OffersProps = {
 }
 
 function Offers({route, offers}: OffersProps): JSX.Element {
-  const [, setActiveOffer] = useState(null as number | null);
+  const [, setActiveOffer] = useState<number>(-1);
   switch(route) {
     case AppRoute.Favorites:
       return (
@@ -57,7 +57,7 @@ function Offers({route, offers}: OffersProps): JSX.Element {
                       () => {
                         // eslint-disable-next-line no-console
                         console.log('leave hover', offer.id);
-                        return setActiveOffer(null);
+                        return setActiveOffer(-1);
                       }
                     }
                   />),
