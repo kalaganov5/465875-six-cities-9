@@ -1,134 +1,30 @@
-import {AppRoute} from 'const';
-import {Link} from 'react-router-dom';
-import {setRatingStyle} from 'utils/utils';
+import OffersFavoritesList from 'components/offers-favorites-list/offers-favorites-list';
+import {Offers as OffersType} from 'types/app';
+import clsx from 'clsx';
 
-function PageFavorites(): JSX.Element {
+type OffersProps = {
+  offers: OffersType;
+}
+
+function PageFavorites({offers}: OffersProps): JSX.Element {
+  const isNothingFavorites = offers.length === 0;
+
   return (
-    <div className="page__favorites-container container">
-      <section className="favorites">
-        <h1 className="favorites__title">Saved listing</h1>
-        <ul className="favorites__list">
-          <li className="favorites__locations-items">
-            <div className="favorites__locations locations locations--current">
-              <div className="locations__item">
-                <Link className="locations__item-link" to={AppRoute.Root}>
-                  <span>Amsterdam</span>
-                </Link>
-              </div>
-            </div>
-            <div className="favorites__places">
-              <article className="favorites__card place-card">
-                <div className="place-card__mark">
-                  <span>Premium</span>
-                </div>
-                <div className="favorites__image-wrapper place-card__image-wrapper">
-                  <Link to={AppRoute.Root}>
-                    <img className="place-card__image" src="img/apartment-small-03.jpg" width="150" height="110" alt="" />
-                  </Link>
-                </div>
-                <div className="favorites__card-info place-card__info">
-                  <div className="place-card__price-wrapper">
-                    <div className="place-card__price">
-                      <b className="place-card__price-value">&euro;180</b>
-                      <span className="place-card__price-text">&#47;&nbsp;night</span>
-                    </div>
-                    <button className="place-card__bookmark-button place-card__bookmark-button--active button" type="button">
-                      <svg className="place-card__bookmark-icon" width="18" height="19">
-                        <use xlinkHref="#icon-bookmark"></use>
-                      </svg>
-                      <span className="visually-hidden">In bookmarks</span>
-                    </button>
-                  </div>
-                  <div className="place-card__rating rating">
-                    <div className="place-card__stars rating__stars">
-                      <span style={setRatingStyle('100')}></span>
-                      <span className="visually-hidden">Rating</span>
-                    </div>
-                  </div>
-                  <h2 className="place-card__name">
-                    <Link to={AppRoute.Root}>Nice, cozy, warm big bed apartment</Link>
-                  </h2>
-                  <p className="place-card__type">Apartment</p>
-                </div>
-              </article>
-
-              <article className="favorites__card place-card">
-                <div className="favorites__image-wrapper place-card__image-wrapper">
-                  <Link to={AppRoute.Root}>
-                    <img className="place-card__image" src="img/room-small.jpg" width="150" height="110" alt="" />
-                  </Link>
-                </div>
-                <div className="favorites__card-info place-card__info">
-                  <div className="place-card__price-wrapper">
-                    <div className="place-card__price">
-                      <b className="place-card__price-value">&euro;80</b>
-                      <span className="place-card__price-text">&#47;&nbsp;night</span>
-                    </div>
-                    <button className="place-card__bookmark-button place-card__bookmark-button--active button" type="button">
-                      <svg className="place-card__bookmark-icon" width="18" height="19">
-                        <use xlinkHref="#icon-bookmark"></use>
-                      </svg>
-                      <span className="visually-hidden">In bookmarks</span>
-                    </button>
-                  </div>
-                  <div className="place-card__rating rating">
-                    <div className="place-card__stars rating__stars">
-                      <span style={setRatingStyle('80')}></span>
-                      <span className="visually-hidden">Rating</span>
-                    </div>
-                  </div>
-                  <h2 className="place-card__name">
-                    <Link to={AppRoute.Root}>Wood and stone place</Link>
-                  </h2>
-                  <p className="place-card__type">Private room</p>
-                </div>
-              </article>
-            </div>
-          </li>
-
-          <li className="favorites__locations-items">
-            <div className="favorites__locations locations locations--current">
-              <div className="locations__item">
-                <Link className="locations__item-link" to={AppRoute.Root}>
-                  <span>Cologne</span>
-                </Link>
-              </div>
-            </div>
-            <div className="favorites__places">
-              <article className="favorites__card place-card">
-                <div className="favorites__image-wrapper place-card__image-wrapper">
-                  <Link to={AppRoute.Root}>
-                    <img className="place-card__image" src="img/apartment-small-04.jpg" width="150" height="110" alt="" />
-                  </Link>
-                </div>
-                <div className="favorites__card-info place-card__info">
-                  <div className="place-card__price-wrapper">
-                    <div className="place-card__price">
-                      <b className="place-card__price-value">&euro;180</b>
-                      <span className="place-card__price-text">&#47;&nbsp;night</span>
-                    </div>
-                    <button className="place-card__bookmark-button place-card__bookmark-button--active button" type="button">
-                      <svg className="place-card__bookmark-icon" width="18" height="19">
-                        <use xlinkHref="#icon-bookmark"></use>
-                      </svg>
-                      <span className="visually-hidden">In bookmarks</span>
-                    </button>
-                  </div>
-                  <div className="place-card__rating rating">
-                    <div className="place-card__stars rating__stars">
-                      <span style={setRatingStyle('100')}></span>
-                      <span className="visually-hidden">Rating</span>
-                    </div>
-                  </div>
-                  <h2 className="place-card__name">
-                    <Link to={AppRoute.Root}>White castle</Link>
-                  </h2>
-                  <p className="place-card__type">Apartment</p>
-                </div>
-              </article>
-            </div>
-          </li>
-        </ul>
+    <div className={clsx('page__favorites-container', 'container')}>
+      <section className={clsx(['favorites', {'favorites--empty' : isNothingFavorites}])}>
+        <h1 className={
+          clsx(['favorites__title', { 'visually-hidden': isNothingFavorites}])
+        }
+        >{isNothingFavorites ? 'Favorites (empty)' : 'Saved listing'}
+        </h1>
+        {isNothingFavorites ? (
+          <div className="favorites__status-wrapper">
+            <b className="favorites__status">Nothing yet saved.</b>
+            <p className="favorites__status-description">Save properties to narrow down search or plan your future trips.</p>
+          </div>
+        ) : (
+          <OffersFavoritesList offers={offers}/>
+        )}
       </section>
     </div>
   );
