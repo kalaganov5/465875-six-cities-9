@@ -1,7 +1,7 @@
 import {setRatingStyle} from 'utils/rating-to-css';
 import FormReview from 'components/form-review/form-review';
 import {Offers, Reviews as ReviewsTypes} from 'types/app';
-import Reviews from 'components/reviews/reviews';
+import Reviews from 'components/reviews-list/reviews-list';
 import OfferItem from 'components/offer-item/offer-item';
 
 type PagePropertyProps = {

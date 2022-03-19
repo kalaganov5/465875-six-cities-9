@@ -1,9 +1,6 @@
-import {Review, Reviews as ReviewsTypes} from 'types/app';
+import {Review} from 'types/app';
 import {ratingToCss} from 'utils/rating-to-css';
 
-type ReviewsProps = {
-  reviews: ReviewsTypes,
-}
 type ReviewTypes = {
   review: Review,
 }
@@ -35,15 +32,4 @@ function ReviewItem ({review}: ReviewTypes) {
   );
 }
 
-function Reviews ({reviews}: ReviewsProps) {
-  return (
-    <ul className="reviews__list">
-      {reviews.map(
-        (reviewItem) => (
-          <ReviewItem key = {reviewItem.id} review = {reviewItem} />
-        ))}
-    </ul>
-  );
-}
-
-export default Reviews;
+export default ReviewItem;
