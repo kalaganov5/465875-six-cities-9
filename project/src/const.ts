@@ -49,6 +49,7 @@ export const appClassName: AppClassName = {
 export const OFFER_CARD = {
   favorites: 'favorites',
   cities: 'cities',
+  nearPlaces: 'near-places',
 };
 
 export const ratingData = [

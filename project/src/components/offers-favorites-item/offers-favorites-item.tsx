@@ -1,6 +1,6 @@
 import {Offers, citiesTypes} from 'types/app';
 import {Link} from 'react-router-dom';
-import {AppRoute, OFFER_CARD} from 'const';
+import {AppRoute} from 'const';
 import OfferItem from 'components/offer-item/offer-item';
 
 interface OffersPlaceItemsProps {
@@ -15,7 +15,7 @@ function OffersPlaceItems({currentCity, offers}: OffersPlaceItemsProps) {
     <>
       {offersByCurrentCity.map(
         (offer) => (
-          <OfferItem  offer={offer} key={offer.id} offerType={OFFER_CARD.favorites} />
+          <OfferItem  offer={offer} key={offer.id} offerType={'favorites'} />
         ),
       )}
     </>

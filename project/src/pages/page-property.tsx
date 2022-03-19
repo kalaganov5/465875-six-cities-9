@@ -3,7 +3,6 @@ import FormReview from 'components/form-review/form-review';
 import {Offers, Reviews as ReviewsTypes} from 'types/app';
 import Reviews from 'components/reviews/reviews';
 import OfferItem from 'components/offer-item/offer-item';
-import {OFFER_CARD} from 'const';
 
 type PagePropertyProps = {
   reviews: ReviewsTypes,
@@ -148,7 +147,7 @@ function PageProperty({reviews, offers}: PagePropertyProps): JSX.Element {
           <div className="near-places__list places__list">
             {
               offers.map((offer) => (
-                <OfferItem key={offer.id} offerType = {OFFER_CARD.nearPlaces} offer = {offer} />
+                <OfferItem key={offer.id} offerType = {'nearPlaces'} offer = {offer} />
               ))
             }
           </div>

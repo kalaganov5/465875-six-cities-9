@@ -5,18 +5,18 @@ import {AppRoute, OFFER_CARD} from 'const';
 import {Offer} from 'types/app';
 import clsx from 'clsx';
 
-type OfferItemProps = {
-  offerType: string,
+interface OfferItemProps {
+  offerType: keyof typeof OFFER_CARD,
   offer: Offer;
   onActivateOffer?: () => void,
   onDeactivateOffer?: () => void,
 }
 
 function OfferItem({offerType, offer, onActivateOffer, onDeactivateOffer}: OfferItemProps): JSX.Element {
-
   const {id, price, previewImage, isFavorite, rating, title, type, isPremium} = offer;
 
-  const isOfferFavorite = offerType === OFFER_CARD.favorites;
+  const isOfferFavorite = OFFER_CARD.favorites === offerType;
+  const isOfferCities = offerType === OFFER_CARD.cities;
 
   const isPremiumMarkup = isPremium ? (
     <div className="place-card__mark">
@@ -27,14 +27,14 @@ function OfferItem({offerType, offer, onActivateOffer, onDeactivateOffer}: Offer
   return (
     <article
       className = {
-        clsx(['place-card', { 'favorites__card': isOfferFavorite, 'cities__place-card': !isOfferFavorite}])
+        clsx(isOfferCities ? 'cities__place-card' :`${OFFER_CARD[offerType]}__card`, ['place-card'])
       }
       onMouseEnter = {onActivateOffer}
       onMouseLeave = {onDeactivateOffer}
     >
       {isPremiumMarkup}
       <div className={
-        clsx(offerType ? `${offerType}__image-wrapper` : '', 'place-card__image-wrapper')
+        clsx(`${OFFER_CARD[offerType]}__image-wrapper`, 'place-card__image-wrapper')
       }
       >
         <Link

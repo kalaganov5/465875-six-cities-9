@@ -25,7 +25,7 @@ function App({userEmail, offers, offersFavorites, reviews}: AppProps): JSX.Eleme
         <Route path='/' element={<Layout userEmail={userEmail} offersFavorites = {offersFavorites}/>}>
           <Route index element={<PageMain offers = {offers} />} />
           <Route path={AppRoute.Login} element={<PageAuth/>} />
-          <Route path={AppRoute.Property} element={<PageProperty reviews = {reviews}/>} />
+          <Route path={AppRoute.Property} element={<PageProperty reviews = {reviews} offers = {offers}/>} />
           <Route path={AppRoute.Favorites} element={<PrivateRoute isAuth={isAuth}/>} >
             <Route path={AppRoute.Favorites}  element={<PageFavorites offers = {offersFavorites} />} />
           </Route>

@@ -1,7 +1,6 @@
 import {useState} from 'react';
 import {Offers as OffersType} from 'types/app';
 import OfferItem from '../offer-item/offer-item';
-import { OFFER_CARD} from 'const';
 
 import FormSorting from 'components/form-sorting/form-sorting';
 import CitiesMap from 'components/cities-map/cities-map';
@@ -22,7 +21,7 @@ function OffersCitiesList({offers}: OffersProps): JSX.Element {
           <div className="cities__places-list places__list tabs__content">
             {offers.map((offer) => (
               <OfferItem
-                offerType = {OFFER_CARD.cities}
+                offerType = {'cities'}
                 key = {offer.id}
                 offer = {offer}
                 onActivateOffer = {
