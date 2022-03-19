@@ -1,16 +1,17 @@
 import {setRatingStyle} from 'utils/rating-to-css';
-import OfferOtherItem from 'components/offer-other-item/offer-other-item';
 import FormReview from 'components/form-review/form-review';
-import {Reviews as ReviewsTypes} from 'types/app';
+import {Offers, Reviews as ReviewsTypes} from 'types/app';
 import Reviews from 'components/reviews/reviews';
+import OfferItem from 'components/offer-item/offer-item';
+import {OFFER_CARD} from 'const';
 
 type PagePropertyProps = {
   reviews: ReviewsTypes,
+  offers: Offers,
 }
 
-function PageProperty({reviews}: PagePropertyProps): JSX.Element {
+function PageProperty({reviews, offers}: PagePropertyProps): JSX.Element {
   const isAuth = true;
-  const otherData = ['', '',  ''];
   return (
     <>
       <section className="property">
@@ -134,7 +135,8 @@ function PageProperty({reviews}: PagePropertyProps): JSX.Element {
             <section className="property__reviews reviews">
               <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">{reviews.length}</span></h2>
               {reviews.length > 0 ? <Reviews reviews = {reviews} /> : null}
-              {isAuth ? <FormReview /> : null}
+              {/* ОШибка в форме */}
+              {isAuth ? <FormReview key="send-form" /> : null}
             </section>
           </div>
         </div>
@@ -145,10 +147,8 @@ function PageProperty({reviews}: PagePropertyProps): JSX.Element {
           <h2 className="near-places__title">Other places in the neighbourhood</h2>
           <div className="near-places__list places__list">
             {
-              otherData.map(() => (
-                // позже key с данными доработать
-                // eslint-disable-next-line react/jsx-key
-                <OfferOtherItem />
+              offers.map((offer) => (
+                <OfferItem key={offer.id} offerType = {OFFER_CARD.nearPlaces} offer = {offer} />
               ))
             }
           </div>

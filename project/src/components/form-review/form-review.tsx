@@ -1,8 +1,40 @@
 import {useState, ChangeEvent} from 'react';
 import {ratingData} from 'const';
 
-function FormReview ():JSX.Element {
+type ratingItemProps = {
+  name: string,
+  value: number,
+  setRatingValid: (arg1: boolean) => void,
+}
+function RatingItem ({name, value, setRatingValid}: ratingItemProps):JSX.Element {
   const [, setRating] = useState<number>(-1);
+  return (
+    <>
+      <input className="form__rating-input visually-hidden"
+        name="rating" value={value}
+        id={`${value}-stars`} type="radio"
+        onChange={({ target }: ChangeEvent<HTMLInputElement>) => {
+          setRating(+target.value);
+          if (+target.value >= 1) {
+            setRatingValid(true);
+          } else {
+            setRatingValid(false);
+          }
+        }}
+      />
+      <label htmlFor={`${value}-stars`}
+        className="reviews__rating-label form__rating-label"
+        title={name}
+      >
+        <svg className="form__star-image" width="37" height="33">
+          <use xlinkHref="#icon-star"></use>
+        </svg>
+      </label>
+    </>
+  );
+}
+
+function FormReview ():JSX.Element {
   const [review, setReview] = useState('');
   const [isRatingValid, setRatingValid] = useState(false);
   const [isReviewValid, setReviewValid] = useState(false);
@@ -16,28 +48,9 @@ function FormReview ():JSX.Element {
       <div className="reviews__rating-form form__rating">
         {ratingData.map(
           (item) => (
-            <>
-              <input className="form__rating-input visually-hidden"
-                name="rating" value={item.value}
-                id={`${item.value}-stars`} type="radio"
-                onChange={({ target }: ChangeEvent<HTMLInputElement>) => {
-                  setRating(+target.value);
-                  if (+target.value >= 1) {
-                    setRatingValid(true);
-                  } else {
-                    setRatingValid(false);
-                  }
-                }}
-              />
-              <label htmlFor={`${item.value}-stars`} className="reviews__rating-label form__rating-label" title={item.name}>
-                <svg className="form__star-image" width="37" height="33">
-                  <use xlinkHref="#icon-star"></use>
-                </svg>
-              </label>
-            </>
+            <RatingItem key={item.name} name = {item.name} value = {item.value} setRatingValid = {setRatingValid}/>
           ),
         )}
-
       </div>
       <textarea className="reviews__textarea form__textarea" id="review" name="review"
         value={review}
